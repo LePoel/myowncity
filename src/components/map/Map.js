@@ -25,7 +25,13 @@ function Map({placeReviews, imageUrls}) {
             {placeReviews.map((placeReview) => (
                 <Marker position={[placeReview.latitude, placeReview.longitude]} icon={customIcon}>
                     <Popup>
-                        <PlaceReviewShow review={placeReview.review} rating={placeReview.rating} imageUrls={imageUrls}/>
+                        <PlaceReviewShow
+                            city={placeReview.city}
+                            postalcode={placeReview.postalcode}
+                            street={placeReview.street}
+                            reviews={placeReview.reviews}
+                            ratings={placeReview.ratings}
+                            images={placeReview.imageRefs}/>
                     </Popup>
                 </Marker>
             ))}
