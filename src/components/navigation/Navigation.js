@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 function Navigation() {
     return (
         <div>
-            <Navbar sticky="top" bg="primary" expand="lg" data-bs-theme="dark">
-                <Navbar.Brand as={Link} to="/" exact>
+            <Navbar fixed="top" bg="primary" expand="lg" data-bs-theme="dark">
+                <Navbar.Brand className="" as={Link} to="/" exact>
                     <h1>MyCity</h1>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
                         <Nav.Link as={Link} to="/reportplace">

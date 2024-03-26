@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
     return (
-        <footer className="bg-primary text-white text-lg-start">
+        <footer className="bg-primary text-white text-lg-start position-sticky-bottom">
             <div className="container-flex p-4">
                 <div className="row">
                     <div className="col-md-7 mb-md-0 text-white">
