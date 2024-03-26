@@ -14,6 +14,7 @@ import {
     where,
     getDocs
 } from "firebase/firestore";
+import umlauteReplacer from "./UmlauteReplacer";
 
 function ReportPlace() {
     //Storage and Database References
@@ -88,7 +89,7 @@ function ReportPlace() {
                 }
 
                 //Add the Image
-                if (newImageUrl != null) {
+                if (newImageUrl !== "") {
                     const imagesCollectionRef = collection(db, `placereview/${existingPlaceReviewID}/imageRefs`);
                     await addDoc(imagesCollectionRef, {imageUrl: newImageUrl});
                 }
@@ -113,8 +114,10 @@ function ReportPlace() {
                 await addDoc(ratingCollectionRef, {stars: newRating});
 
                 //Add the Image
-                const imagesCollectionRef = collection(newPlaceReviewRef, 'imageRefs');
-                await addDoc(imagesCollectionRef, {imageUrl: newImageUrl});
+                if (newImageUrl !== "") {
+                    const imagesCollectionRef = collection(newPlaceReviewRef, 'imageRefs');
+                    await addDoc(imagesCollectionRef, {imageUrl: newImageUrl});
+                }
             }
 
             setSubmissionMessage("Review submitted successfully!");
@@ -125,7 +128,7 @@ function ReportPlace() {
         <div>
             <input
                 placeholder="Street"
-                onChange={(e) => setNewStreet(e.target.value)}
+                onChange={(e) => setNewStreet(umlauteReplacer(e.target.value.toLowerCase()))}
             />
             <input
                 placeholder="Postalcode"
@@ -134,19 +137,19 @@ function ReportPlace() {
             />
             <input
                 placeholder="City"
-                onChange={(e) => setNewCity(e.target.value)}
+                onChange={(e) => setNewCity(umlauteReplacer(e.target.value.toLowerCase()))}
             />
             <input
                 placeholder="State"
-                onChange={(e) => setNewState(e.target.value)}
+                onChange={(e) => setNewState(e.target.value.toLowerCase())}
             />
             <input
                 placeholder="Country"
-                onChange={(e) => setNewCountry(e.target.value)}
+                onChange={(e) => setNewCountry(e.target.value.toLowerCase())}
             />
             <input
                 placeholder="Comment"
-                onChange={(e) => setNewComment(e.target.value)}
+                onChange={(e) => setNewComment(e.target.value.toLowerCase())}
             />
             <input
                 placeholder="Rating"
