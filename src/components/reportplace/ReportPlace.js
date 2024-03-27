@@ -132,35 +132,46 @@ function ReportPlace() {
                     to help our community explore the city.</p>
             </div>
             <h4 className="text-secondary mt-4 mb-3">About the location</h4>
-            <div className="form-group mb-3">
-                <input
-                    placeholder="Street"
-                    onChange={(e) => setNewStreet(umlauteReplacer(e.target.value.toLowerCase()))}
-                />
-            </div>
             <div className="row">
-                <div className="col-md-6">
-
-                </div>
-                <div className="col-md-6">
+                <div className="col-12">
+                    <label for="street" className="form-label">Street</label>
                     <input
-                        placeholder="Postalcode"
+                        placeholder="e.g. Musterstraße 1a" id="street" className="form-control"
+                        onChange={(e) => setNewStreet(umlauteReplacer(e.target.value.toLowerCase()))}
+                    />
+                </div>
+                <div className="col-sm-6">
+                    <label for="postalcode" className="form-label">Postalcode</label>
+                    <input
+                        placeholder="e.g. 40215" className="form-control"
+                        id="postalcode"
                         type="number"
                         onChange={(e) => setnewPostalcode(Number(e.target.value))}
                     />
+                </div>
+                <div className="col-sm-6">
+                    <label for="city" className="form-label">City</label>
                     <input
-                        placeholder="City"
+                        placeholder="e.g. Düsseldorf" id="city" className="form-control"
                         onChange={(e) => setNewCity(umlauteReplacer(e.target.value.toLowerCase()))}
                     />
+                </div>
+
+                <div className="col-sm-6">
+                    <label for="state" className="form-label">State</label>
                     <input
-                        placeholder="State"
+                        placeholder="e.g. Nordrhein-Westfalen" id="state" className="form-control"
                         onChange={(e) => setNewState(e.target.value.toLowerCase())}
                     />
+                </div>
+                <div className="col-sm-6">
+                    <label for="country" className="form-label">Country</label>
                     <input
-                        placeholder="Country"
+                        placeholder="e.g. Deutschland" id="country" className="form-control"
                         onChange={(e) => setNewCountry(e.target.value.toLowerCase())}
                     />
                 </div>
+
                 <h4 className="text-secondary mt-4 mb-3">Your Review</h4>
                 <div className="form-group mb-3">
                     <textarea onChange={(e) => setNewComment(e.target.value.toLowerCase())}
@@ -185,13 +196,13 @@ function ReportPlace() {
                         }}
                     />
                 </div>
-            </div>
-            <div className="d-grid mt-5 mb-5">
-                <button className="btn btn-primary btn-lg rounded-5" onClick={onSubmitPlaceReview}> Submit Review</button>
-                {submissionMessage && <p>{submissionMessage}</p>}
-            </div>
 
+                <div className="d-grid mt-5 mb-5">
+                    <button className="btn btn-primary btn-lg rounded-5" onClick={onSubmitPlaceReview}> Submit Review</button>
+                    {submissionMessage && <p>{submissionMessage}</p>}
+                </div>
 
+            </div>
         </div>
     );
 }
