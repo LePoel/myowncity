@@ -1,11 +1,22 @@
 import Card from 'react-bootstrap/Card';
+import Carousel from 'react-bootstrap/Carousel';
 
-function PlaceReviewShow({ city, postalcode, street, reviews, ratings, images }) {
+
+function PlaceReviewShow({city, postalcode, street, reviews, ratings, images}) {
     const totalStars = ratings.reduce((acc, curr) => acc + curr.stars, 0);
     const averageRating = totalStars / ratings.length;
     return (
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={images.length > 0 ? images[0].imageUrl : ''} {...(images.length > 0 && { alt: "Picture of a place" })} />
+        <Card style={{width: '18rem'}}>
+            <Carousel>
+                {images.map((image, index) => (
+                    <Carousel.Item key={index}>
+                        <Card.Img variant="top"
+                                  src={image.imageUrl}
+                                  alt={"Picture of a place"}
+                        />
+                    </Carousel.Item>
+                ))}
+            </Carousel>
             <Card.Body>
                 <Card.Title>{street.charAt(0).toUpperCase() + street.slice(1)}</Card.Title>
                 <Card.Text>
