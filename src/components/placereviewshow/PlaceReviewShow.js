@@ -5,7 +5,7 @@ function PlaceReviewShow({ city, postalcode, street, reviews, ratings, images })
     const averageRating = totalStars / ratings.length;
     return (
         <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={images.length > 0 ? images[0].imageUrl : ''} {...(images.length > 0 && { alt: "Picture of a place" })}/>
+            <Card.Img variant="top" src={images.length > 0 ? images[0].imageUrl : ''} {...(images.length > 0 && { alt: "Picture of a place" })} />
             <Card.Body>
                 <Card.Title>{street.charAt(0).toUpperCase() + street.slice(1)}</Card.Title>
                 <Card.Text>

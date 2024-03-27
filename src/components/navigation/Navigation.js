@@ -6,12 +6,12 @@ function Navigation() {
     return (
         <div>
             <Navbar fixed="top" bg="primary" expand="lg" data-bs-theme="dark">
-                <Navbar.Brand className="" as={Link} to="/" exact>
-                    <h1>MyCity</h1>
+                <Navbar.Brand as={Link} to="/" exact>
+                    <h1 className="ms-4 mb-0">MyCity</h1>
                 </Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-4" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="ml-auto">
+                    <Nav className="ms-4">
                         <Nav.Link as={Link} to="/reportplace">
                             Report a place
                         </Nav.Link>
