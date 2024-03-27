@@ -1,9 +1,10 @@
 import Map from "../map/Map";
 import { db } from "../../config/firebase";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getDocs, collection, query } from "firebase/firestore"
 import PlaceReviewShow from "../placereviewshow/PlaceReviewShow";
 import { Link } from "react-router-dom";
+import Carousel from "react-bootstrap/Carousel";
 function Home() {
     const [placeReviews, setPlaceReviews] = useState([]);
 
@@ -55,17 +56,12 @@ function Home() {
         getPlaceReviews();
     }, []);
 
-
-
-    const renderedPlaceReviews = placeReviews.map((placeReview) => {
-        return <PlaceReviewShow
-            city={placeReview.city}
-            postalcode={placeReview.postalcode}
-            street={placeReview.street}
-            reviews={placeReview.reviews}
-            ratings={placeReview.ratings}
-            images={placeReview.imageRefs} />
-    })
+    const chunks = placeReviews.reduce((acc, _, index, array) => {
+        if (index % 3 === 0) {
+            acc.push(array.slice(index, index + 3));
+        }
+        return acc;
+    }, []);
 
     return (
         <div className="home container-fluid m-0 p-0">
@@ -94,7 +90,25 @@ function Home() {
             <div className="row m-3">
                 <div className="col bg-light rounded-3 mt-3 p-3">
                     <h5>Newest Community Reviews</h5>
-                    {renderedPlaceReviews}
+                    <Carousel indicators={false}>
+                        {chunks.map((chunk, index) => (
+                            <Carousel.Item key={index}>
+                                <div className="d-flex justify-content-around">
+                                    {chunk.map((placeReview, innerIndex) => (
+                                        <PlaceReviewShow
+                                            key={innerIndex}
+                                            city={placeReview.city}
+                                            postalcode={placeReview.postalcode}
+                                            street={placeReview.street}
+                                            reviews={placeReview.reviews}
+                                            ratings={placeReview.ratings}
+                                            images={placeReview.imageRefs}
+                                        />
+                                    ))}
+                                </div>
+                            </Carousel.Item>
+                        ))}
+                    </Carousel>
                 </div>
 
             </div>
