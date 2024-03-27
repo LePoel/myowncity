@@ -3,6 +3,7 @@ import { db } from "../../config/firebase";
 import { useEffect, useState } from "react";
 import { getDocs, collection, query } from "firebase/firestore"
 import PlaceReviewShow from "../placereviewshow/PlaceReviewShow";
+import {Link} from "react-router-dom";
 function Home() {
     const [placeReviews, setPlaceReviews] = useState([]);
 
@@ -80,16 +81,16 @@ function Home() {
                             <p className="fw-semibold">Came across a place you want to tell our community about?</p>
                         </div>
                         <div className="col text-center mb-3">
-                            <a className="btn btn-primary btn-lg rounded-5" href="/src/pages/reportPlace/reportPlace.html" role="button">Report a place</a>
+                            <Link to="/reportplace" className="btn btn-primary btn-lg rounded-5" role="button">Report a Place</Link>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div className="col-md-8">
                     <Map placeReviews={placeReviews} /> {renderedPlaceReviews}
                 </div>
             </div>
         </div>
     );
-};
+}
 
 export default Home;
