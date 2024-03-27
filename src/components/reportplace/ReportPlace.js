@@ -126,45 +126,72 @@ function ReportPlace() {
 
     return (
         <div className="p-4">
-            <input
-                placeholder="Street"
-                onChange={(e) => setNewStreet(umlauteReplacer(e.target.value.toLowerCase()))}
-            />
-            <input
-                placeholder="Postalcode"
-                type="number"
-                onChange={(e) => setnewPostalcode(Number(e.target.value))}
-            />
-            <input
-                placeholder="City"
-                onChange={(e) => setNewCity(umlauteReplacer(e.target.value.toLowerCase()))}
-            />
-            <input
-                placeholder="State"
-                onChange={(e) => setNewState(e.target.value.toLowerCase())}
-            />
-            <input
-                placeholder="Country"
-                onChange={(e) => setNewCountry(e.target.value.toLowerCase())}
-            />
-            <input
-                placeholder="Comment"
-                onChange={(e) => setNewComment(e.target.value.toLowerCase())}
-            />
-            <input
-                placeholder="Rating"
-                type="number"
-                min="0" max="5"
-                onChange={(e) => setNewRating(Number(e.target.value))}
-            />
-            <input
-                type="file"
-                onChange={(event) => {
-                    setImageUpload(event.target.files[0]);
-                }}
-            />
-            <button onClick={onSubmitPlaceReview}> Submit Place Review</button>
-            {submissionMessage && <p>{submissionMessage}</p>}
+            <div className="row">
+                <h1><span className="text-primary">Report</span> a place</h1>
+                <p id="instruction">Came across a place you want to report? Please give us some informations about about the location and your experience
+                    to help our community explore the city.</p>
+            </div>
+            <h4 className="text-secondary mt-4 mb-3">About the location</h4>
+            <div className="form-group mb-3">
+                <input
+                    placeholder="Street"
+                    onChange={(e) => setNewStreet(umlauteReplacer(e.target.value.toLowerCase()))}
+                />
+            </div>
+            <div className="row">
+                <div className="col-md-6">
+
+                </div>
+                <div className="col-md-6">
+                    <input
+                        placeholder="Postalcode"
+                        type="number"
+                        onChange={(e) => setnewPostalcode(Number(e.target.value))}
+                    />
+                    <input
+                        placeholder="City"
+                        onChange={(e) => setNewCity(umlauteReplacer(e.target.value.toLowerCase()))}
+                    />
+                    <input
+                        placeholder="State"
+                        onChange={(e) => setNewState(e.target.value.toLowerCase())}
+                    />
+                    <input
+                        placeholder="Country"
+                        onChange={(e) => setNewCountry(e.target.value.toLowerCase())}
+                    />
+                </div>
+                <h4 className="text-secondary mt-4 mb-3">Your Review</h4>
+                <div className="form-group mb-3">
+                    <textarea onChange={(e) => setNewComment(e.target.value.toLowerCase())}
+                        className="form-control" id="textarea" rows="3" placeholder="Tell us some more details about the place
+                        you want to review"></textarea>
+                </div>
+                <div class="form-group mb-2">
+                    <p>Overall, how would you rate the place?</p>
+                    <input
+                        placeholder="-"
+                        type="number"
+                        min="0" max="5"
+                        onChange={(e) => setNewRating(Number(e.target.value))}
+                    />
+                </div>
+                <h4 className="text-secondary mt-4 mb-3">Upload a picture</h4>
+                <div class=" form-group mb-2">
+                    <input
+                        className="form-control form-control-sm" id="formFileSm" type="file"
+                        onChange={(event) => {
+                            setImageUpload(event.target.files[0]);
+                        }}
+                    />
+                </div>
+            </div>
+            <div className="d-grid mt-5 mb-5">
+                <button className="btn btn-primary btn-lg rounded-5" onClick={onSubmitPlaceReview}> Submit Review</button>
+                {submissionMessage && <p>{submissionMessage}</p>}
+            </div>
+
+
         </div>
     );
 }
