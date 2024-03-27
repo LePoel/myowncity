@@ -1,5 +1,26 @@
 import Card from 'react-bootstrap/Card';
 import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
+function StarRating({ rating }) {
+    const numStars = 5;
+    const fullStars = Math.floor(rating);
+    const halfStars = Math.ceil(rating - fullStars);
+    const emptyStars = numStars - fullStars - halfStars;
+
+    const stars = [];
+    for (let i = 0; i < fullStars; i++) {
+        stars.push(<i key={i} className="bi bi-star-fill text-warning"></i>);
+    }
+    if (halfStars === 1) {
+        stars.push(<i key={fullStars} className="bi bi-star-half text-warning"></i>);
+    }
+    for (let i = 0; i < emptyStars; i++) {
+        stars.push(<i key={fullStars + halfStars + i} className="bi bi-star text-warning"></i>);
+    }
+
+    return <div>{stars}</div>;
+}
 
 
 function PlaceReviewShow({city, postalcode, street, reviews, ratings, images}) {
@@ -20,7 +41,7 @@ function PlaceReviewShow({city, postalcode, street, reviews, ratings, images}) {
             <Card.Body>
                 <Card.Title>{street.charAt(0).toUpperCase() + street.slice(1)}</Card.Title>
                 <Card.Text>
-                    <h2>Average Rating: {averageRating}</h2>
+                    <h2>Average Rating: <StarRating rating={averageRating} /></h2>
                     <h2>Reviews:</h2>
                     <ul>
                         {reviews.map((review, index) => (
