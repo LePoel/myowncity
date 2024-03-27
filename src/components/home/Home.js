@@ -89,8 +89,8 @@ function Home() {
             </div>
             <div className="row m-3">
                 <div className="col bg-light rounded-3 mt-3 p-3">
-                    <h5>Newest Community Reviews</h5>
-                    <Carousel indicators={false}>
+                    <h5><span className="fw-bold">Newest Community Review</span></h5>
+                <Carousel indicators={false}>
                         {chunks.map((chunk, index) => (
                             <Carousel.Item key={index}>
                                 <div className="d-flex justify-content-around">

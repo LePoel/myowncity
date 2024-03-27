@@ -15,6 +15,7 @@ import {
     getDocs
 } from "firebase/firestore";
 import umlauteReplacer from "./UmlauteReplacer";
+import { Rating } from 'react-simple-star-rating'
 
 function ReportPlace() {
     //Storage and Database References
@@ -180,12 +181,7 @@ function ReportPlace() {
                 </div>
                 <div class="form-group mb-2">
                     <p>Overall, how would you rate the place?</p>
-                    <input
-                        placeholder="-"
-                        type="number"
-                        min="0" max="5"
-                        onChange={(e) => setNewRating(Number(e.target.value))}
-                    />
+                    <Rating onClick={(rate) => setNewRating(Number(rate))}/>
                 </div>
                 <h4 className="text-secondary mt-4 mb-3">Upload a picture</h4>
                 <div class=" form-group mb-2">
