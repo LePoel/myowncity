@@ -3,7 +3,7 @@ import { db } from "../../config/firebase";
 import { useEffect, useState } from "react";
 import { getDocs, collection, query } from "firebase/firestore"
 import PlaceReviewShow from "../placereviewshow/PlaceReviewShow";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 function Home() {
     const [placeReviews, setPlaceReviews] = useState([]);
 
@@ -68,26 +68,35 @@ function Home() {
     })
 
     return (
-        <div className='home container-fluid p-4'>
-            <div className="row">
-                <div className="col-md-4">
+        <div className="home container-fluid m-0 p-0">
+            <div className="row m-3">
+                <div className="col-md-5 mb-5 p-3">
                     <div className="row">
-                        <div className="col-xs-12 text-center align-content-center text-primary fs-5 mt-1 mt-md-5 mb-3 mb-md-5" id="einleitung">
+                        <div className="col-xs-12 text-center align-content-center text-primary fs-5 " id="einleitung">
                             <p className="m-0">Navigate with <span className="fw-bold">care</span>, </p>
                             <p className="m-0">live with <span className="fw-bold">confidence</span>!</p>
                         </div>
-                        <div className="col-xs-12 text-center" id="erläuterung">
+                        <div className="col-xs-12 text-center p-3" id="erläuterung">
                             <p id="erklärung">MyCity operates an interactive map that shows places in your neighborhood that have been rated by our community.</p>
                             <p className="fw-semibold">Came across a place you want to tell our community about?</p>
                         </div>
-                        <div className="col text-center mb-3">
+                        <div className="col text-center pt-3">
                             <Link to="/reportplace" className="btn btn-primary btn-lg rounded-5" role="button">Report a Place</Link>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-8">
-                    <Map placeReviews={placeReviews} /> {renderedPlaceReviews}
+                <div className="col-md-7 m-0  p-0">
+                    <div className="bg-light rounded-3 p-3">
+                        <Map placeReviews={placeReviews} />
+                    </div>
                 </div>
+            </div>
+            <div className="row m-3">
+                <div className="col bg-light rounded-3 mt-3 p-3">
+                    <h5>Newest Community Reviews</h5>
+                    {renderedPlaceReviews}
+                </div>
+
             </div>
         </div>
     );
