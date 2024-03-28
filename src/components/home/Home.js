@@ -65,7 +65,7 @@ function Home() {
 
     return (
         <div className="home container-fluid m-0 p-0">
-            <div className="row m-3 pt-3">
+            <div className="row m-3 m-md-5 pt-3 pt-md-5">
                 <div className="col-md-5 mb-4 mt-md-4 p-3">
                     <div className="row">
                         <div className="col-xs-12 mb-md-3 text-center align-content-center text-primary fs-5 " id="einleitung">
@@ -87,8 +87,8 @@ function Home() {
                     </div>
                 </div>
             </div>
-            <div className="row m-3">
-                <div className="col bg-light rounded-3 mt-3 mb-3 p-3">
+            <div className="row m-3 m-md-5">
+                <div className="col bg-light rounded-3 mt-3 mt-md-0 mb-3 p-3">
                     <h4 className="fw-medium">Newest Community Reviews</h4>
                     <Carousel indicators={false}>
                         {chunks.map((chunk, index) => (
