@@ -13,3 +13,11 @@
     height: 70vh;
     width: 100%;
 }
+
+/* height of the container is less on smaller screens*/
+@media (max-width:768px) {
+    .leaflet-container {
+        height: 45vh;
+        width: 100%;
+    }
+}

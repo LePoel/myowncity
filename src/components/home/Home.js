@@ -65,10 +65,10 @@ function Home() {
 
     return (
         <div className="home container-fluid m-0 p-0">
-            <div className="row m-3">
-                <div className="col-md-5 mb-5 p-3">
+            <div className="row m-3 pt-3">
+                <div className="col-md-5 mb-4 mt-md-4 p-3">
                     <div className="row">
-                        <div className="col-xs-12 text-center align-content-center text-primary fs-5 " id="einleitung">
+                        <div className="col-xs-12 mb-md-3 text-center align-content-center text-primary fs-5 " id="einleitung">
                             <p className="m-0">Navigate with <span className="fw-bold">care</span>, </p>
                             <p className="m-0">live with <span className="fw-bold">confidence</span>!</p>
                         </div>
@@ -76,24 +76,24 @@ function Home() {
                             <p id="erklärung">MyCity operates an interactive map that shows places in your neighborhood that have been rated by our community.</p>
                             <p className="fw-semibold">Came across a place you want to tell our community about?</p>
                         </div>
-                        <div className="col text-center pt-3">
+                        <div className="col text-center pt-md-3">
                             <Link to="/reportplace" className="btn btn-primary btn-lg rounded-5" role="button">Report a Place</Link>
                         </div>
                     </div>
                 </div>
-                <div className="col-md-7 m-0  p-0">
+                <div className="col-md-7 m-0 p-0">
                     <div className="bg-light rounded-3 p-3">
                         <Map placeReviews={placeReviews} />
                     </div>
                 </div>
             </div>
             <div className="row m-3">
-                <div className="col bg-light rounded-3 mt-3 p-3">
-                    <h5><span className="fw-bold">Newest Community Review</span></h5>
-                <Carousel indicators={false}>
+                <div className="col bg-light rounded-3 mt-3 mb-3 p-3">
+                    <h4 className="fw-medium">Newest Community Reviews</h4>
+                    <Carousel indicators={false}>
                         {chunks.map((chunk, index) => (
                             <Carousel.Item key={index}>
-                                <div className="d-flex justify-content-around">
+                                <div className="d-flex">
                                     {chunk.map((placeReview, innerIndex) => (
                                         <PlaceReviewShow
                                             key={innerIndex}
