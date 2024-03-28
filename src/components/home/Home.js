@@ -1,9 +1,9 @@
 import Map from "../map/Map";
-import {db} from "../../config/firebase";
-import React, {useEffect, useState} from "react";
-import {getDocs, collection, query} from "firebase/firestore"
+import { db } from "../../config/firebase";
+import React, { useEffect, useState } from "react";
+import { getDocs, collection, query } from "firebase/firestore"
 import PlaceReviewShow from "../placereviewshow/PlaceReviewShow";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import Carousel from "react-bootstrap/Carousel";
 
 function Home() {
@@ -45,7 +45,7 @@ function Home() {
                     const imagesData = imagesCollection.docs.map(doc => doc.data());
 
 
-                    return {...placereview, ratings: ratingsData, reviews: reviewData, imageRefs: imagesData};
+                    return { ...placereview, ratings: ratingsData, reviews: reviewData, imageRefs: imagesData };
                 }));
             setPlaceReviews(placeReviewWithRatingsAndReviewsAndPictures);
         } catch (err) {
@@ -63,7 +63,7 @@ function Home() {
                 <div className="col-md-5 mb-4 mt-md-4 p-3">
                     <div className="row">
                         <div className="col-xs-12 mb-md-3 text-center align-content-center text-primary fs-5 "
-                             id="einleitung">
+                            id="einleitung">
                             <p className="m-0">Navigate with <span className="fw-bold">care</span>, </p>
                             <p className="m-0">live with <span className="fw-bold">confidence</span>!</p>
                         </div>
@@ -80,7 +80,7 @@ function Home() {
                 </div>
                 <div className="col-md-7 m-0 p-0">
                     <div className="bg-light rounded-3 p-3">
-                        <Map placeReviews={placeReviews}/>
+                        <Map placeReviews={placeReviews} />
                     </div>
                 </div>
             </div>
@@ -90,7 +90,7 @@ function Home() {
                     <Carousel indicators={false}>
                         {placeReviews.map((placeReview, innerIndex) => (
                             <Carousel.Item>
-                                <div className="d-flex">
+                                <div className="d-flex justify-content-center">
                                     <PlaceReviewShow
                                         key={innerIndex}
                                         city={placeReview.city}

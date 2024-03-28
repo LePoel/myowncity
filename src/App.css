@@ -15,9 +15,6 @@ html {
     padding: 0px;
 }
 
-h1 {
-    margin-bottom: ;
-}
 
 p {
     margin-bottom: 15px;
@@ -30,4 +27,16 @@ p {
     background-position: center;
     height: 140px;
     justify-content: center;
+}
+
+
+
+@media (min-width:768px) {
+    .card {
+        flex-direction: row;
+    }
+
+    .card-img {
+        width: 40%;
+    }
 }
