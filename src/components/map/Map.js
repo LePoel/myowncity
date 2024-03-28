@@ -1,7 +1,7 @@
 import "./style.css";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { Icon } from "leaflet";
+import {Icon} from "leaflet";
 import PlaceReviewShow from "../placereviewshow/PlaceReviewShow";
 
 // create custom icon
@@ -11,7 +11,7 @@ const customIcon = new Icon({
     iconSize: [38, 38] // size of the icon
 });
 
-function Map({ placeReviews, imageUrls }) {
+function Map({placeReviews}) {
     return (
         <MapContainer center={[51.2277, 6.7735]} zoom={13}>
             <TileLayer
@@ -31,7 +31,8 @@ function Map({ placeReviews, imageUrls }) {
                             street={placeReview.street}
                             reviews={placeReview.reviews}
                             ratings={placeReview.ratings}
-                            images={placeReview.imageRefs} />
+                            images={placeReview.imageRefs}
+                            borders={false}/>
                     </Popup>
                 </Marker>
             ))}

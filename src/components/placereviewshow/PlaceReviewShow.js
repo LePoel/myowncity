@@ -24,13 +24,13 @@ function StarRating({rating}) {
 }
 
 
-function PlaceReviewShow({city, postalcode, street, reviews, ratings, images}) {
+function PlaceReviewShow({city, postalcode, street, reviews, ratings, images, borders = true}) {
     const totalStars = ratings.reduce((acc, curr) => acc + curr.stars, 0);
     const averageRating = totalStars / ratings.length;
     return (
         <div className="row">
             <div className="col-6">
-                <Card border="grey" className="m-2" style={{width: '18rem'}}>
+                <Card border={borders ? "grey" : "0"} className={borders ? "m-2" : "m-2 border-0"} style={{width: '18rem'}}>
 
                     {images.length > 0 ? (
                         <Carousel>
