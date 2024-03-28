@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Navigation() {
     return (
         <div>
-            <Navbar fixed="top" bg="primary" expand="lg" data-bs-theme="dark">
+            <Navbar fixed="top" bg="primary" expand="md" data-bs-theme="dark">
                 <Navbar.Brand as={Link} to="/" exact>
                     <h1 className="ms-4 mb-0">MyCity</h1>
                 </Navbar.Brand>
