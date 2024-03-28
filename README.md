@@ -15,6 +15,6 @@ Write all the commands in the terminal:
 
 2) npm start (starts the local server)
 
-Now you can access the local version via [https:http://localhost:3000/](https:http://localhost:3000/)
+Now you can access the local version via [http://localhost:3000/](http://localhost:3000/)
 
 Have Fun :) 
