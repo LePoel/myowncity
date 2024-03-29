@@ -24,16 +24,16 @@ function StarRating({ rating }) {
 }
 
 
-function PlaceReviewShow({ city, postalcode, street, reviews, ratings, images, borders = true }) {
+function PlaceReviewShow({ city, postalcode, street, reviews, ratings, images, map = false }) {
     const totalStars = ratings.reduce((acc, curr) => acc + curr.stars, 0);
     const averageRating = totalStars / ratings.length;
     return (
-        <Card border={borders ? "grey" : "0"} className={borders ? "m-2" : "m-2 border-0"} >
+        <Card border={map ? "0" : "grey"} className={map ? "m-2 border-0" : "m-2"}>
             {images.length > 0 ? (
-                <Carousel>
+                <Carousel style={{ width: "40%" }}>
                     {images.map((image, index) => (
-                        <Carousel.Item key={index}>
-                            <Card.Img variant="top" className="img-fluid"
+                        <Carousel.Item key={index} >
+                            <Card.Img variant="top" className="img-responsive"
                                 src={image.imageUrl}
                                 alt={"Picture of a place"}
                             />
@@ -44,7 +44,8 @@ function PlaceReviewShow({ city, postalcode, street, reviews, ratings, images, b
                 <Card.Img
                     src={defaultImageUrl}
                     alt={"Default Picture"}
-                    className="img-fluid"
+                    className="img-responsive"
+                    style={{ width: "40%" }}
                 />
             )}
             <Card.Body>

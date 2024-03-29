@@ -35,8 +35,4 @@ p {
     .card {
         flex-direction: row;
     }
-
-    .card-img {
-        width: 40%;
-    }
 }
